@@ -148,8 +148,8 @@
 <body>
 
   <!-- Header with Logo and Burger Menu -->
-  <header class="animate__animated animate__fadeInDown">
-    <nav class="navbar">
+  <header>
+    <nav class="navbar animate__animated animate__fadeInDown">
       <div class="logo">
         <a href="index.html">
           <img src="Untitled design.png" alt="Company Logo" />
@@ -234,13 +234,32 @@
     </div>
   </footer>
 
-  <!-- JS for Burger Menu -->
+  <!-- JS for Burger Menu & Scroll Reveal -->
   <script>
+    // Burger Menu Toggle
     const burger = document.getElementById('burger');
     const navLinks = document.getElementById('navLinks');
 
     burger.addEventListener('click', () => {
       navLinks.classList.toggle('active');
+    });
+
+    // Animate on scroll
+    const reveals = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    reveals.forEach(reveal => {
+      observer.observe(reveal);
     });
   </script>
 
