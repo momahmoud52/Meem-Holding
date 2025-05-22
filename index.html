@@ -17,6 +17,7 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       color: #fff;
+      overflow-x: hidden;
     }
 
     .navbar {
@@ -32,6 +33,11 @@
 
     .logo img {
       width: 100px;
+      transition: transform 0.3s ease;
+    }
+
+    .logo img:hover {
+      transform: scale(1.08);
     }
 
     .nav-links {
@@ -44,6 +50,7 @@
       color: white;
       text-decoration: none;
       font-weight: 500;
+      transition: color 0.3s ease;
     }
 
     .nav-links li a:hover {
@@ -65,8 +72,16 @@
     }
 
     .section {
-      padding: 5rem 2rem;
+      padding: 6rem 2rem;
       text-align: center;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: 0.6s ease-out;
+    }
+
+    .section.active {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .section img.section-img {
@@ -78,18 +93,21 @@
     }
 
     .btn {
-      margin-top: 1rem;
-      padding: 0.5rem 1rem;
-      background: #00c6ff;
+      display: inline-block;
+      margin-top: 2.5rem;
+      padding: 0.75rem 1.8rem;
+      background: linear-gradient(to right, #00c6ff, #0072ff);
       color: white;
-      border: none;
-      border-radius: 30px;
       text-decoration: none;
+      border-radius: 30px;
       font-weight: bold;
+      font-size: 1rem;
+      transition: transform 0.3s ease, background 0.3s ease;
     }
 
     .btn:hover {
-      background: #00ffe1;
+      transform: scale(1.05);
+      background: linear-gradient(to right, #00ffe1, #00c6ff);
       color: #111;
     }
 
@@ -119,7 +137,6 @@
       color: white;
     }
 
-    /* Responsive */
     @media (max-width: 768px) {
       .burger {
         display: flex;
@@ -141,6 +158,30 @@
       .nav-links li {
         text-align: center;
         padding: 0.5rem 0;
+      }
+
+      .logo img {
+        width: 90px;
+      }
+
+      .section {
+        padding: 4rem 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .btn {
+        width: 100%;
+        padding: 0.8rem;
+      }
+
+      .nav-links li a {
+        font-size: 1rem;
+      }
+
+      .section h1,
+      .section h2 {
+        font-size: 1.8rem;
       }
     }
   </style>
@@ -185,7 +226,7 @@
         <img src="images/about.jpg" alt="About Us" class="section-img">
         <h2>About Us</h2>
         <p>This section describes who we are and our mission.</p>
-        <a class="btn" href="about.html">Learn More</a>
+        <a class="btn reveal-btn" href="about.html">Learn More</a>
       </div>
     </section>
 
@@ -194,7 +235,7 @@
         <img src="images/services.jpg" alt="Services" class="section-img">
         <h2>Our Services</h2>
         <p>Explore all the services we offer to support your goals.</p>
-        <a class="btn" href="services.html">See Services</a>
+        <a class="btn reveal-btn" href="services.html">See Services</a>
       </div>
     </section>
 
@@ -203,7 +244,7 @@
         <img src="images/portfolio.jpg" alt="Portfolio" class="section-img">
         <h2>Portfolio</h2>
         <p>Check out some of our past projects and success stories.</p>
-        <a class="btn" href="portfolio.html">View Portfolio</a>
+        <a class="btn reveal-btn" href="portfolio.html">View Portfolio</a>
       </div>
     </section>
 
@@ -212,7 +253,7 @@
         <img src="images/contact.jpg" alt="Contact" class="section-img">
         <h2>Contact Us</h2>
         <p>Have a question or want to work with us?</p>
-        <a class="btn" href="contact.html">Get in Touch</a>
+        <a class="btn reveal-btn" href="contact.html">Get in Touch</a>
       </div>
     </section>
   </main>
@@ -234,18 +275,18 @@
     </div>
   </footer>
 
-  <!-- JS for Burger Menu & Scroll Reveal -->
+  <!-- JS for Burger Menu & Reveal Animation -->
   <script>
-    // Burger Menu Toggle
     const burger = document.getElementById('burger');
     const navLinks = document.getElementById('navLinks');
+    const navbar = document.querySelector('.navbar');
 
     burger.addEventListener('click', () => {
       navLinks.classList.toggle('active');
     });
 
-    // Animate on scroll
     const reveals = document.querySelectorAll('.reveal');
+    const btns = document.querySelectorAll('.reveal-btn');
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -254,13 +295,10 @@
           observer.unobserve(entry.target);
         }
       });
-    }, {
-      threshold: 0.1
-    });
+    }, { threshold: 0.15 });
 
-    reveals.forEach(reveal => {
-      observer.observe(reveal);
-    });
+    reveals.forEach(reveal => observer.observe(reveal));
+    btns.forEach(btn => observer.observe(btn));
   </script>
 
 </body>
