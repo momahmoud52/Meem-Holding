@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Professional Company Website</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <script defer src="script.js"></script>
+  <style>
+    .section img.section-img {
+      max-width: 180px;
+      margin: 0 auto 1.5rem;
+      display: block;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .footer-content {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: #111;
+      color: white;
+    }
+
+    .social-icons {
+      margin: 1rem 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+    }
+
+    .social-icons a {
+      color: #00ffe1;
+      font-size: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.2);
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header with Logo -->
+  <header class="animate__animated animate__fadeInDown">
+    <nav class="navbar">
+      <div class="logo">
+        <a href="index.html">
+          <img src="Untitled design.png" alt="Company Logo" class="logo-img"/>
+        </a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Sections -->
+  <main>
+    <section id="home" class="section reveal">
+      <div class="container">
+        <img src="images/home.jpg" alt="Home" class="section-img">
+        <h1>Welcome to Our Company</h1>
+        <p>We provide a wide range of professional services to help your business grow.</p>
+      </div>
+    </section>
+
+    <section id="about" class="section reveal">
+      <div class="container">
+        <img src="images/about.jpg" alt="About Us" class="section-img">
+        <h2>About Us</h2>
+        <p>This section describes who we are and our mission.</p>
+        <a class="btn" href="about.html">Learn More</a>
+      </div>
+    </section>
+
+    <section id="services" class="section reveal">
+      <div class="container">
+        <img src="images/services.jpg" alt="Services" class="section-img">
+        <h2>Our Services</h2>
+        <p>Explore all the services we offer to support your goals.</p>
+        <a class="btn" href="services.html">See Services</a>
+      </div>
+    </section>
+
+    <section id="portfolio" class="section reveal">
+      <div class="container">
+        <img src="images/portfolio.jpg" alt="Portfolio" class="section-img">
+        <h2>Portfolio</h2>
+        <p>Check out some of our past projects and success stories.</p>
+        <a class="btn" href="portfolio.html">View Portfolio</a>
+      </div>
+    </section>
+
+    <section id="contact" class="section reveal">
+      <div class="container">
+        <img src="images/contact.jpg" alt="Contact" class="section-img">
+        <h2>Contact Us</h2>
+        <p>Have a question or want to work with us?</p>
+        <a class="btn" href="contact.html">Get in Touch</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="animate__animated animate__fadeInUp">
+    <div class="footer-content">
+      <p>&copy; 2025 Company Name. All rights reserved.</p>
+      <div class="social-icons">
+        <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://snapchat.com" target="_blank"><i class="fab fa-snapchat-ghost"></i></a>
+        <a href="https://wa.me/1234567890" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <p><a href="#">Back to Top</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>

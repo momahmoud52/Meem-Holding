@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us - Company</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    :root {
+      --transition-speed: 0.6s;
+      --glow: 0 0 10px rgba(0,255,255,0.6);
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(20, 30, 48, 0.95);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      flex-wrap: wrap;
+    }
+
+    .logo img {
+      width: 100px;
+      height: auto;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .nav-links li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color var(--transition-speed);
+    }
+
+    .nav-links li a:hover,
+    .nav-links li a.active-link {
+      color: #00ffe1;
+    }
+
+    .section {
+      padding: 5rem 2rem;
+      background: linear-gradient(135deg, #1f1c2c, #928dab);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+      animation: fadeUp 1.2s ease-in-out forwards;
+      opacity: 0;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 0.75rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: all var(--transition-speed);
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      box-shadow: var(--glow);
+    }
+
+    .btn {
+      background: #00c6ff;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #00ffe1;
+      color: #111;
+    }
+
+    .contact-info {
+      margin-top: 3rem;
+      text-align: left;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      opacity: 0;
+      animation: fadeUp 1s ease-in-out forwards;
+      animation-delay: 0.8s;
+    }
+
+    .contact-info div {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 1.5rem;
+      border-radius: 10px;
+      transition: transform 0.3s;
+    }
+
+    .contact-info div:hover {
+      transform: scale(1.02);
+    }
+
+    iframe {
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+      height: 300px;
+    }
+
+    footer {
+      background-color: #111;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: white;
+      font-size: 24px;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      z-index: 10000;
+      transition: transform 0.3s ease;
+    }
+
+    .whatsapp-btn:hover {
+      transform: scale(1.1);
+      background-color: #1ebe5b;
+    }
+
+    @keyframes fadeUp {
+      0% {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .contact-info {
+        grid-template-columns: 1fr;
+      }
+
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+      }
+
+      .logo img {
+        width: 80px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="index.html">
+          <img src="Untitled design.png" alt="Company Logo" />
+        </a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="contact.html" class="active-link">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main -->
+  <main>
+    <section class="section">
+      <div class="container">
+        <h1>Contact Us</h1>
+        <p>We’d love to hear from you. Please reach out using the form below.</p>
+
+        <form class="contact-form" action="https://formspree.io/f/your_form_id" method="POST">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+          <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+          <button class="btn" type="submit">Send Message</button>
+        </form>
+
+        <div class="contact-info">
+          <div>
+            <h3>Contact Info</h3>
+            <p><strong>Phone:</strong> +123 456 7890</p>
+            <p><strong>Email:</strong> contact@yourcompany.com</p>
+            <p><strong>Location:</strong> 123 Business Street, City, Country</p>
+          </div>
+          <div>
+            <h3>Find Us Here</h3>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387190.27991477605!2d-74.2598676873586!3d40.69767006365244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c250b8fc6fe3a9%3A0x725d6d1c8da6a2bb!2sNew%20York%2C%20USA!5e0!3m2!1sen!2seg!4v1681234567890"
+              allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/1234567890" class="whatsapp-btn" target="_blank" title="Chat with us on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 Company Name. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
